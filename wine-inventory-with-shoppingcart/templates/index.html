@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <!-- [START css] -->
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css">
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/repository.css">
+    <!-- [END css] -->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Wine Inventory</a>
+          <div class="nav-collapse collapse pull-right">
+            <a href="/shoppingcart" class="btn">My Shopping Cart</a>
+            <a href="{{ url|safe }}" class="btn">{{ url_linktext }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Hao Fu's Wine Inventory</h2>
+      <hr>
+      <center><a href="/browse?type_name=red" style='font-size:2.0em'><span style="font-weight:bold">Browse red wines</span></a></center>
+      <br style="margin-bottom:240px;"/>
+      <center><a href="/browse?type_name=white" style='font-size:2.0em'><span style="font-weight:bold">Browse white wines</span></a></center>
+      <br style="margin-bottom:240px;"/>
+      <center><a href="/browse?type_name=rose" style='font-size:2.0em'><span style="font-weight:bold">Browse rose wines</span></a></center>
+      <br style="margin-bottom:240px;"/>
+      <center><a href="/browse?type_name=sparkling" style='font-size:2.0em'><span style="font-weight:bold">Browse sparkling wines</span></a></center>
+      <br style="margin-bottom:240px;"/>
+      <center><a href="/search" style='font-size:2.0em'><span style="font-weight:bold">Search for wines</span></a></center>
+      <br style="margin-bottom:240px;"/>
+      <center><a href="/enter" style='font-size:2.0em'><span style="font-weight:bold">Enter New Wines's Info</span></a></center>
+      <br style="margin-bottom:240px;"/>
+      <center><a href="/shoppingcart" style='font-size:2.0em'><span style="font-weight:bold">View My Shopping Cart</span></a></center>
+    </div>
+  </body>
+</html>
+{% endautoescape %}

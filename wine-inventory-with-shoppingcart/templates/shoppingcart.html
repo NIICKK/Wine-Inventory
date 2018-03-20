@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <!-- [START css] -->
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css">
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/repository.css">
+    <!-- [END css] -->
+
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Wine Inventory</a>
+          <div class="nav-collapse collapse pull-right">
+          <a href="/history" class="btn">My Purchase History</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h2>{{ cart_email }}'s shopping cart</h2>
+      <hr>
+      <!-- [START wines] -->
+      {% for wine in wines %}
+        {{wine.country }},
+        {{wine.region}},
+        {{wine.name}},
+        {{wine.variety}},
+        {{wine.price}},
+        {{wine.year}}
+        <form class="shoppingcart" action="/shoppingcart" method="post">
+            <input type="hidden" value="{{ wine.key.id() }}" name="song_del_id">
+            <input type="submit" class="btn btn-small" value="delete">
+        </form>
+        <div style="line-height: 130%"><br></div>
+
+      {% endfor %}
+      <p>Total Cost: {{total_cost}}</p>
+      <a class="btn btn-primary" href="/purchase">Purchase</a>
+      <hr>
+      <a href="/">Return Main Page</a>
+    </div>
+  </body>
+</html>
+{% endautoescape %}
